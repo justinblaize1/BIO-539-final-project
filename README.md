@@ -6,7 +6,7 @@ To perform big gene analysis first we start biomaRt search.
 #Load library
 library(biomaRt)
 
-## Warning: package 'biomaRt' was built under R version 3.6.3
+Warning: package 'biomaRt' was built under R version 3.6.3
 #List databases, click on myMarts in Environment to view options
 myMarts <- listMarts()
 

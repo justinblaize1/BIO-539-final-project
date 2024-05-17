@@ -119,6 +119,7 @@ top5genes_1000 <- head(B_vs_E_1000[order(B_vs_E_1000$padj), 'Gene.name'], 5)
 B_vs_E_1000$delabel <- ifelse(B_vs_E_1000$Gene.name %in% top5genes_1000, B_vs_E_1000$Gene.name, NA)
  
 #Set a theme for my volcano plot
+
 theme_set(theme_classic(base_size = 12) + theme(axis.title.y = element_text(face = "bold", margin = margin(0,20,0,0), size = rel(1.1), color = 'black'), axis.title.x = element_text(hjust = 0.5, face = "bold", margin = margin(20,0,0,0), size = rel(1.1), color = 'black'), plot.title = element_text(hjust = 0.2), axis.text.x = element_text(size = 12), axis.text.y = element_text(size = 12))) 
 
 #plotted data using ggplot with log2foldchange on x-axis and -log10padj value on y axis. Colored significantly upregulated genes green and significantly downregulated genes red. Labeled everything and returned gene names of top 5 differentially expressed genes according to p value. Used dplyr count function to get exact amount of upregulated, downregulated, and not significant genes

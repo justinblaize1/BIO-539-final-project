@@ -122,6 +122,7 @@ B_vs_E_1000$delabel <- ifelse(B_vs_E_1000$Gene.name %in% top5genes_1000, B_vs_E_
 theme_set(theme_classic(base_size = 12) + theme(axis.title.y = element_text(face = "bold", margin = margin(0,20,0,0), size = rel(1.1), color = 'black'), axis.title.x = element_text(hjust = 0.5, face = "bold", margin = margin(20,0,0,0), size = rel(1.1), color = 'black'), plot.title = element_text(hjust = 0.2), axis.text.x = element_text(size = 12), axis.text.y = element_text(size = 12))) 
 
 #plotted data using ggplot with log2foldchange on x-axis and -log10padj value on y axis. Colored significantly upregulated genes green and significantly downregulated genes red. Labeled everything and returned gene names of top 5 differentially expressed genes according to p value. Used dplyr count function to get exact amount of upregulated, downregulated, and not significant genes
+
 ggplot(data = B_vs_E_1000, aes(x= log2FoldChange, y= -log10(padj), col = diffexpressed, label = delabel)) + geom_point(size = 2) + scale_color_manual(values = c("green", "gray", "red"), labels = c("Downregulated (40)", "Not Significant (876)", "Upregulated (84)")) + coord_cartesian(ylim = c(0, 300), xlim = c(-10,10)) + labs(color = "Differentially Expressed", x = expression("log"[2]*"FoldChange"), y = expression("-log"[10]*"padj")) + ggtitle('FA-D2 APH vs. FA-D2 + FANCD2 APH 1000 largest genes') + geom_text_repel(max.overlaps = Inf, fontface = "italic")
 
 ## For small genes under replication stress
